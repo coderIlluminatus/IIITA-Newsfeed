@@ -28,7 +28,7 @@ public class NewsItem {
     }
 
     public void setSociety(String society) {
-        society = society;
+        this.society = society;
     }
 
     public String getDescription() {

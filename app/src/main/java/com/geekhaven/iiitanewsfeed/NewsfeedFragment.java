@@ -3,6 +3,7 @@ package com.geekhaven.iiitanewsfeed;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,10 @@ public class NewsfeedFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_newsfeed, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.newsfeed_recyclerview);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
         ref = FirebaseDatabase.getInstance().getReference();
+        ref = ref.child("newslist");
 
         FirebaseRecyclerAdapter<NewsItem,NewsfeedViewHolder> adapter =
                 new FirebaseRecyclerAdapter<NewsItem, NewsfeedViewHolder>(
